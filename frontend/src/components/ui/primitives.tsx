@@ -1,0 +1,7 @@
+import { PackageOpen, X } from 'lucide-react';
+import { useEffect, useRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+export function Button({variant='default',className='',...p}:ButtonHTMLAttributes<HTMLButtonElement>&{variant?:'default'|'primary'|'danger'|'quiet'}){return <button {...p} className={`button ${variant} ${className}`}/>;}
+export function Badge({children,tone='neutral'}:{children:ReactNode;tone?:string}){return <span className={`badge ${tone}`}>{children}</span>}
+export function Empty({title,children}:{title:string;children:ReactNode}){return <div className="empty"><PackageOpen className="empty-symbol" size={36} aria-hidden/><h3>{title}</h3><p>{children}</p></div>}
+/** Modal traps focus and restores it; Escape is disabled while a write is in flight. */
+export function Modal({title,children,onClose,busy=false,error}:{title:string;children:ReactNode;onClose:()=>void;busy?:boolean;error?:string}){const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{const el=ref.current;const previous=document.activeElement as HTMLElement|null;el?.showModal();return()=>{el?.close();previous?.focus()};},[]);return <dialog ref={ref} aria-labelledby="modal-title" onCancel={e=>{e.preventDefault();if(!busy)onClose()}}><div className="modal-top"><h2 id="modal-title">{title}</h2><Button variant="quiet" aria-label="关闭" disabled={busy} onClick={onClose}><X size={19}/></Button></div>{error&&<p role="alert" className="message error">{error}</p>}{children}</dialog>}

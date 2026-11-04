@@ -1,0 +1,624 @@
+{
+  "id": "com.usebottles.bottles",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "runtime-commit": "d607f3df26df30485d50f07c69f2a4750483cc644625a1eda0f2062c59bd6848",
+  "sdk": "org.gnome.Sdk",
+  "sdk-commit": "5c92e46b82b1e11e16894588655e77117fecc1f7bdbbf6869dea4454a39fc88b",
+  "base": "org.winehq.Wine",
+  "base-version": "stable-25.08",
+  "base-commit": "1335e8c35454674165bf1ed7ec87193e059fe1c948ce3c1a77fea45d32e395bd",
+  "command": "bottles",
+  "modules": [
+    {
+      "name": "yara",
+      "buildsystem": "autotools",
+      "config-opts": [
+        "--disable-static",
+        "--enable-cuckoo",
+        "--enable-magic",
+        "--enable-dotnet"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/VirusTotal/yara",
+          "commit": "84b0e3cc0e42f8f8e6b84d19c97ec3ac6ff8aee8",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ],
+      "modules": [
+        {
+          "name": "jansson",
+          "buildsystem": "cmake-ninja",
+          "config-opts": [
+            "-DJANSSON_BUILD_DOCS=OFF",
+            "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+          ],
+          "sources": [
+            {
+              "url": "https://github.com/akheron/jansson",
+              "commit": "1749b187dc516909df82a2769a990078230c6a76",
+              "x-checker-data": {
+                "type": "git",
+                "tag-pattern": "^v([\\d.]+)$"
+              },
+              "type": "git"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "python3-package-installation",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://files.pythonhosted.org/packages/f7/2f/cc09899755f94b36e7f570b9f9ca19a5fdff536e2614fd3ac1c28bb777f6/FVS-0.3.4.tar.gz",
+          "sha256": "c987741f37706ea07d91ec498c145162676ca16b59b5c8c2351cf464954ce422",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/fe/66/bcab3b677b71ad286b4e607e3427499537c76e13ad2e22584ba7a7d9882c/markdown-3.11.2-py3-none-any.whl",
+          "sha256": "f80390747a2a0ff2ba54da074ce4f862f72a6685f608cd2637b646a6d83993f5",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/65/1e/d590f82e14db75945b03f6b63e0f19662e0340babd8f574fdb1bb5a015e2/pygobject-3.58.1.tar.gz",
+          "sha256": "4c80598ade17fbaa7798e01a25d0bf29ce109740786026a074c5c62bb3e79d23",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/8d/59/b4572118e098ac8e46e399a1dd0f2d85403ce8bbaad9ec79373ed6badaf9/PySocks-1.7.1-py3-none-any.whl",
+          "sha256": "2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/74/27/e5b8f34d02d9995b80abcef563ea1f8b56d20134d8f4e5e81733b1feceb2/pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "0f29edc409a6392443abf94b9cf89ce99889a1dd5376d94316ae5145dfedd5d6",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+          "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/ca/04/0b5fd38375ae182cec6446dd3121aaff5ae18fd12b98b10161a58b720db9/chardet-7.7.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "c519c10c315a675bcfd4b55c0e0de1859ca5a39881d8f69750500102c2fc5d2f",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/4b/85/41d27f234b82e47c167a5f6c0f62501dc0c640585ff4aba79e08a390336a/charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "7218e8f32b0956cfcd048fd42d9d5779809745ca1d86113ca56f66e7ae1549c4",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/88/89/fd63aa1d5c97ee2121c14287e78be339dea12b4138b61f0f3c98d562a105/icoextract-0.3.1-py3-none-any.whl",
+          "sha256": "8c8dfe6947a904a2446c671059b8050beeb545958cb71b07445c2a651229c900",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+          "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/45/46/f8d83189ff5b7b2ff225a58c5908618cc4e86afe09e65d17a30ac68c9da4/orjson-3.13.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "cbed5f4c4b88d94bcc36115f4c3bb3aa25da1563a5c3328aa3acebce2b083040",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/9a/70/875f4a23bfc4731703a5835487d0d2fb999031bd415e7d17c0ae615c18b7/pathvalidate-3.3.1-py3-none-any.whl",
+          "sha256": "5263baab691f8e1af96092fa5137ee17df5bdfbd6cff1fcac4d6ef4bc2e1735f",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/7b/f6/9a9049cfa3b00073c632a437ba85b7d81c787bdeded80cd3dd295089a20a/patool-4.1.0-py2.py3-none-any.whl",
+          "sha256": "acb7cdc5c5b9138eb9713e021aa5450aa32bf3d5c9e778b51e7b6786407eac46",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/54/16/12b82f791c7f50ddec566873d5bdd245baa1491bac11d15ffb98aecc8f8b/pefile-2024.8.26-py3-none-any.whl",
+          "sha256": "76f8b485dcd3b1bb8166f1128d395fa3d87af26360c2358fb75b80019b957c6f",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/bb/5e/19ab2572981a996ce96b853a189d2dcced40506b67d9555a7568457abcf2/pycairo-1.29.2.tar.gz",
+          "sha256": "3e69fff74fe64f5ba2dfa31f67c6bdf26413342574047437d2ac520d35e9a489",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/b6/20/c1b3a90aa44bab3cf5f4f5bddb6ba85b9a57f3d7b95b807b497290f9f92e/pycurl-7.48.0-cp313-cp313-manylinux_2_28_x86_64.whl",
+          "sha256": "aaed3cc92d380075909b5b5ed3c385d34fc0364bd0c5f6b984c1148674ae1e57",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+          "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+          "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+          "type": "file"
+        },
+        {
+          "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+          "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+          "type": "file"
+        },
+        {
+          "only-arches": [
+            "x86_64"
+          ],
+          "url": "https://files.pythonhosted.org/packages/99/ee/21477d4c83e7f267ff7d61a518eb1b2d3eb7877031c5c07bd1dc0a54eb95/yara_python-4.5.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "9d9a58b7dc87411a2443d2e0382a111bd892aef9f6db2a1ebb4a9215eef0db71",
+          "type": "file"
+        }
+      ],
+      "build-commands": [
+        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --no-build-isolation wheel PyYAML pycurl chardet requests PySocks Markdown icoextract patool pathvalidate FVS orjson pycairo PyGObject charset-normalizer idna urllib3 certifi pefile yara-python"
+      ]
+    },
+    {
+      "name": "fvs2",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "dest": "fvs2",
+          "url": "https://github.com/fvs-lab/fvs2.git",
+          "commit": "a33950c91b35fa8e0b80398502b26bfe565bea47",
+          "type": "git"
+        },
+        {
+          "dest": "fvs2/vendor/fvs-v2-core",
+          "url": "https://github.com/fvs-lab/core.git",
+          "commit": "305bcbe730ec54649414bc41a424044ef38c37a4",
+          "type": "git"
+        },
+        {
+          "dest": "fvs2/vendor",
+          "path": "com.usebottles.bottles.fvs2-modules.txt",
+          "dest-filename": "modules.txt",
+          "type": "file"
+        },
+        {
+          "dest": "fvs2/vendor/github.com/mirkobrombin/go-cli-builder/v2",
+          "url": "https://proxy.golang.org/github.com/mirkobrombin/go-cli-builder/v2/@v/v2.0.5.zip",
+          "sha256": "c3b117897d1d1fb8f0acd7882116c57d0b2681924808fd74780c00df61d8700a",
+          "strip-components": 4,
+          "type": "archive"
+        },
+        {
+          "dest": "fvs2/vendor/github.com/zeebo/blake3",
+          "url": "https://proxy.golang.org/github.com/zeebo/blake3/@v/v0.2.4.zip",
+          "sha256": "65aaa3487c097fa0140f52041e8e6fe8214c244a29223fd4caaa60986192a08f",
+          "strip-components": 3,
+          "type": "archive"
+        },
+        {
+          "dest": "fvs2/vendor/github.com/klauspost/cpuid/v2",
+          "url": "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.0.12.zip",
+          "sha256": "d5584d6e63855131440308e71f91ec54d391a50e9653f6c09a39d15610e0d0bc",
+          "strip-components": 4,
+          "type": "archive"
+        },
+        {
+          "dest": "fvs2/vendor/github.com/mirkobrombin/go-foundation",
+          "url": "https://proxy.golang.org/github.com/mirkobrombin/go-foundation/@v/v0.2.0.zip",
+          "sha256": "7a04058dbd8d49516dcc622eb216dcff22c4da1e812acfb7882e740c756b1ea0",
+          "strip-components": 3,
+          "type": "archive"
+        }
+      ],
+      "build-options": {
+        "append-path": "/usr/lib/sdk/golang/bin"
+      },
+      "build-commands": [
+        "cd fvs2 && go build -mod=vendor -o /app/bin/fvs2 ./cmd/fvs2"
+      ]
+    },
+    {
+      "name": "umu-launcher",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://github.com/Open-Wine-Components/umu-launcher/releases/download/1.4.4/umu-launcher-1.4.4-zipapp.tar",
+          "sha256": "eb590691841f7fad3fc3ad8fd5db4ccb87849fe7948e62b28ece7a4ee48cc851",
+          "x-checker-data": {
+            "type": "json",
+            "is-important": true,
+            "url": "https://api.github.com/repos/Open-Wine-Components/umu-launcher/releases/latest",
+            "version-query": ".tag_name",
+            "url-query": "\"https://github.com/Open-Wine-Components/umu-launcher/releases/download/\" + $version + \"/umu-launcher-\" + $version + \"-zipapp.tar\""
+          },
+          "type": "archive"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Open-Wine-Components/umu-launcher/cf3d1b107147480c447ffbfb3f789dc74335074c/LICENSE",
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "type": "file"
+        }
+      ],
+      "build-commands": [
+        "install -Dm755 umu-run /app/bin/umu-run",
+        "install -Dm644 LICENSE /app/share/licenses/umu-launcher/LICENSE"
+      ]
+    },
+    {
+      "name": "vmtouch",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://github.com/hoytech/vmtouch",
+          "commit": "af86e27675843b3c7e4ddfee66ddbaf44eff43c4",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://api.github.com/repos/hoytech/vmtouch/commits",
+            "commit-query": "first( .[].sha )",
+            "timestamp-query": "first( .[].commit.committer.date )"
+          },
+          "type": "git"
+        }
+      ],
+      "build-commands": [
+        "make",
+        "make install PREFIX=/app"
+      ]
+    },
+    {
+      "name": "vulkan-tools",
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/KhronosGroup/Vulkan-Tools.git",
+          "commit": "a7da7027ca9fd0901639f02619c226da9c6036f1",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^sdk-([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ],
+      "modules": [
+        {
+          "name": "vulkan-headers",
+          "buildsystem": "cmake-ninja",
+          "sources": [
+            {
+              "url": "https://github.com/KhronosGroup/Vulkan-Headers.git",
+              "commit": "85c2334e92e215cce34e8e0ed8b2dce4700f4a50",
+              "x-checker-data": {
+                "type": "git",
+                "tag-pattern": "^sdk-([\\d.]+)$"
+              },
+              "type": "git"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xdpyinfo",
+      "buildsystem": "autotools",
+      "sources": [
+        {
+          "url": "https://gitlab.freedesktop.org/xorg/app/xdpyinfo.git",
+          "commit": "f98d23f24d0700a07ab86292140ffd8b987d8abb",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^xdpyinfo-([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ]
+    },
+    {
+      "name": "ImageMagick",
+      "config-opts": [
+        "--disable-static",
+        "--disable-docs",
+        "--with-hdri",
+        "--with-pic"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/ImageMagick/ImageMagick",
+          "commit": "fbaaaaaaa9198df72105ce6eb05436b5b78eea67",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^([\\d.]+-[\\d]+)$"
+          },
+          "type": "git"
+        }
+      ]
+    },
+    {
+      "name": "libportal",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dbackend-gtk3=disabled",
+        "-Dbackend-gtk4=enabled",
+        "-Dportal-tests=false",
+        "-Dvapi=false",
+        "-Ddocs=false"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/flatpak/libportal",
+          "commit": "e2e2b9545ed9464b00d5a5fd77d49d687ae4edbc",
+          "x-checker-data": {
+            "type": "git",
+            "is-important": true,
+            "tag-pattern": "^([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ]
+    },
+    {
+      "name": "vkbasalt-cli",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://gitlab.com/TheEvilSkeleton/vkbasalt-cli",
+          "commit": "8a17f8421d3dd5c266dc33b476229bf844b447cf",
+          "x-checker-data": {
+            "type": "git",
+            "is-important": true,
+            "tag-pattern": "^v([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ],
+      "build-commands": [
+        "python3 setup.py install --prefix=/app --root=/"
+      ]
+    },
+    {
+      "name": "EasyTerm",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://github.com/bottlesdevs/EasyTerm",
+          "commit": "4ab1f6a14111d05bcca9537bd479e450162e5a40",
+          "x-checker-data": {
+            "type": "git",
+            "is-important": true,
+            "tag-pattern": "^([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ],
+      "modules": [
+        {
+          "name": "fast_float",
+          "buildsystem": "cmake-ninja",
+          "sources": [
+            {
+              "url": "https://github.com/fastfloat/fast_float.git",
+              "commit": "50a80a73ab2ab256ba1c3bf86923ddd8b4202bc7",
+              "type": "git"
+            }
+          ]
+        },
+        {
+          "name": "vte",
+          "buildsystem": "meson",
+          "config-opts": [
+            "-Dvapi=false"
+          ],
+          "sources": [
+            {
+              "url": "https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz",
+              "sha256": "aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8",
+              "x-checker-data": {
+                "type": "gnome",
+                "name": "vte",
+                "stable-only": true
+              },
+              "type": "archive"
+            }
+          ]
+        }
+      ],
+      "build-commands": [
+        "python3 setup.py install --prefix=/app --root=/"
+      ]
+    },
+    {
+      "name": "runtime",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "url": "https://github.com/bottlesdevs/runtime/releases/download/0.6.3/runtime-0.6.3.tar.gz",
+          "sha256": "d7749b48927bd782e128e372a1d7085133fbe300eb9193134eb821f61bc5fad6",
+          "x-checker-data": {
+            "type": "json",
+            "is-important": true,
+            "url": "https://api.github.com/repos/bottlesdevs/runtime/releases/latest",
+            "version-query": ".tag_name",
+            "url-query": "\"https://github.com/bottlesdevs/runtime/releases/download/\" + $version + \"/runtime-\" + $version + \".tar.gz\""
+          },
+          "type": "archive"
+        }
+      ],
+      "build-commands": [
+        "mkdir -p /app/etc/runtime",
+        "cp -a * /app/etc/runtime/"
+      ]
+    },
+    {
+      "name": "bundle-setup",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "path": "ld.so.conf",
+          "type": "file"
+        }
+      ],
+      "build-commands": [
+        "install -Dm644 ld.so.conf -t /app/etc"
+      ]
+    },
+    {
+      "name": "com.usebottles.bottles.src",
+      "buildsystem": "meson",
+      "builddir": true,
+      "sources": [
+        {
+          "url": "https://github.com/bottlesdevs/Bottles",
+          "commit": "cf05edccf5b260767dd8b0084a57408635aca7b8",
+          "x-checker-data": {
+            "type": "git",
+            "is-main-source": true,
+            "tag-pattern": "^((?:\\d+.?){1,2})$"
+          },
+          "type": "git"
+        }
+      ]
+    }
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "*.la",
+    "*.a"
+  ],
+  "cleanup-commands": [
+    "mkdir -p /app/utils",
+    "mkdir -p /app/share/steam/compatibilitytools.d",
+    "mkdir -p /app/share/vulkan/implicit_layer.d/",
+    "mkdir -p /app/lib/i386-linux-gnu",
+    "mkdir -p /app/lib/debug/lib/i386-linux-gnu",
+    "mkdir -p /app/lib/i386-linux-gnu/GL",
+    "mkdir -p /app/lib/debug/lib/i386-linux-gnu/GL",
+    "mkdir -p /app/lib/i386-linux-gnu/dri/intel-vaapi-driver",
+    "mkdir -p /app/i386/nvidia-vaapi-driver",
+    "mkdir -p /app/lib/i386-linux-gnu/codecs-extra"
+  ],
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.golang"
+  ],
+  "finish-args": [
+    "--allow=devel",
+    "--allow=multiarch",
+    "--allow=per-app-dev-shm",
+    "--share=network",
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--socket=pulseaudio",
+    "--device=all",
+    "--filesystem=xdg-data/umu:create",
+    "--filesystem=~/Games/umu:create",
+    "--system-talk-name=org.freedesktop.UDisks2",
+    "--env=LD_LIBRARY_PATH=/usr/lib/extensions/vulkan/gamescope/lib:/app/lib/i386-linux-gnu/codecs-extra/lib:/app/lib:/app/lib/i386-linux-gnu",
+    "--env=PATH=/app/bin:/app/utils/bin:/usr/bin:/usr/lib/extensions/vulkan/MangoHud/bin/:/usr/bin:/usr/lib/extensions/vulkan/OBSVkCapture/bin/:/usr/lib/extensions/vulkan/gamescope/bin/",
+    "--env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0:/app/lib32/gstreamer-1.0:/app/lib/i386-linux-gnu/codecs-extra/lib/gstreamer-1.0:/app/lib/i386-linux-gnu/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/codecs-extra/lib/gstreamer-1.0:/usr/lib/i386-linux-gnu/codecs-extra/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0",
+    "--require-version=1.1.2"
+  ],
+  "inherit-extensions": [
+    "org.winehq.Wine.gecko",
+    "org.winehq.Wine.mono"
+  ],
+  "add-extensions": {
+    "com.valvesoftware.Steam.CompatibilityTool": {
+      "directory": "share/steam/compatibilitytools.d",
+      "no-autodownload": true,
+      "version": "stable",
+      "versions": "stable;beta;test"
+    },
+    "com.valvesoftware.Steam.Utility": {
+      "directory": "utils",
+      "add-ld-path": "lib",
+      "merge-dirs": "bin",
+      "no-autodownload": true,
+      "version": "stable",
+      "versions": "stable;beta;test"
+    },
+    "org.freedesktop.Platform.Compat.i386": {
+      "directory": "lib/i386-linux-gnu",
+      "version": "25.08"
+    },
+    "org.freedesktop.Platform.Compat.i386.Debug": {
+      "directory": "lib/debug/lib/i386-linux-gnu",
+      "no-autodownload": true,
+      "version": "25.08"
+    },
+    "org.freedesktop.Platform.GL32": {
+      "directory": "lib/i386-linux-gnu/GL",
+      "add-ld-path": "lib",
+      "download-if": "active-gl-driver",
+      "enable-if": "active-gl-driver",
+      "autoprune-unless": "active-gl-driver",
+      "merge-dirs": "vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;lib/gbm;vulkan/explicit_layer.d;vulkan/implicit_layer.d;vdpau",
+      "no-autodownload": true,
+      "version": "1.4",
+      "versions": "25.08;25.08-extra;1.4"
+    },
+    "org.freedesktop.Platform.GL32.Debug": {
+      "directory": "lib/debug/lib/i386-linux-gnu/GL",
+      "enable-if": "active-gl-driver",
+      "autoprune-unless": "active-gl-driver",
+      "merge-dirs": "vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;lib/gbm;vulkan/explicit_layer.d;vulkan/implicit_layer.d;vdpau",
+      "no-autodownload": true,
+      "version": "1.4",
+      "versions": "25.08;25.08-extra;1.4"
+    },
+    "org.freedesktop.Platform.VAAPI.Intel.i386": {
+      "directory": "lib/i386-linux-gnu/dri/intel-vaapi-driver",
+      "add-ld-path": "lib",
+      "download-if": "have-intel-gpu",
+      "autoprune-unless": "have-intel-gpu",
+      "no-autodownload": true,
+      "version": "25.08",
+      "versions": "25.08"
+    },
+    "org.freedesktop.Platform.VAAPI.nvidia.i386": {
+      "directory": "i386/nvidia-vaapi-driver",
+      "add-ld-path": "lib",
+      "download-if": "have-kernel-module-nvidia",
+      "autoprune-unless": "have-kernel-module-nvidia",
+      "no-autodownload": true,
+      "version": "25.08",
+      "versions": "25.08"
+    },
+    "org.freedesktop.Platform.codecs_extra.i386": {
+      "directory": "lib/i386-linux-gnu/codecs-extra",
+      "add-ld-path": "lib",
+      "version": "25.08-extra"
+    }
+  },
+  "source-date-epoch": 1321009871,
+  "x-gl-version": "1.4",
+  "x-gl-merge-dirs": "vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;lib/gbm;vulkan/explicit_layer.d;vulkan/implicit_layer.d;vdpau",
+  "x-gl-versions": "25.08;25.08-extra;1.4"
+}

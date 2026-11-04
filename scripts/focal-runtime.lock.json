@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "target": "ubuntu-20.04-x86_64",
+  "sources": [
+    {
+      "name": "flatpak",
+      "version": "1.18.4",
+      "file": "flatpak-source.tar.xz",
+      "url": "https://github.com/flatpak/flatpak/releases/download/1.18.4/flatpak-1.18.4.tar.xz",
+      "sha256": "b899a7a00c48d2c626cb8ec33fe556720b376c25805d7222430c0fdca4c6ac8d",
+      "destination": "flatpak-1.18.4"
+    },
+    {
+      "name": "glib",
+      "version": "2.88.4",
+      "file": "glib-2.88.4.tar.xz",
+      "url": "https://download.gnome.org/sources/glib/2.88/glib-2.88.4.tar.xz",
+      "sha256": "25fd169f3b2f91fe2391ad297883ce0fcf30c69fc789ffd1c9672d1332b1c5a8",
+      "destination": "glib-2.88.4"
+    },
+    {
+      "name": "meson",
+      "version": "1.6.1",
+      "file": "meson-1.6.1.tar.gz",
+      "url": "https://github.com/mesonbuild/meson/releases/download/1.6.1/meson-1.6.1.tar.gz",
+      "sha256": "1eca49eb6c26d58bbee67fd3337d8ef557c0804e30a6d16bfdf269db997464de",
+      "destination": "meson-1.6.1"
+    },
+    {
+      "name": "ostree",
+      "version": "2026.5",
+      "file": "libostree-2026.5.tar.xz",
+      "url": "https://github.com/ostreedev/ostree/releases/download/v2026.5/libostree-2026.5.tar.xz",
+      "sha256": "1829428ed2d982dc684211ff18525b57ea627056a68fa5b04f674f0ca6c9c19b",
+      "destination": "libostree-2026.5"
+    },
+    {
+      "name": "bubblewrap",
+      "version": "0.12.0",
+      "file": "bubblewrap-source.tar.gz",
+      "url": "https://codeload.github.com/containers/bubblewrap/tar.gz/2a76602a8c71f36c1527cf9fc3417d9149822e0c",
+      "sha256": "d1383cdc691a335f531564c6d0a1e06165932a4bb9e62a42f952eb0286995431",
+      "destination": "flatpak-1.18.4/subprojects/bubblewrap"
+    },
+    {
+      "name": "dbus-proxy",
+      "version": "0.1.9",
+      "file": "dbus-proxy-source.tar.gz",
+      "url": "https://codeload.github.com/flatpak/xdg-dbus-proxy/tar.gz/72b40c8f6d9d585cfbdb249690724f740d207087",
+      "sha256": "d6c2d37986c93ec966b5fcfe017c29ab687e99813e18c99e11c3aaf6b91ea7a8",
+      "destination": "flatpak-1.18.4/subprojects/dbus-proxy"
+    }
+  ],
+  "build_packages": [
+    {
+      "name": "bison",
+      "version": "2:3.5.1+dfsg-1",
+      "file": "bison_2%3a3.5.1+dfsg-1_amd64.deb",
+      "sha256": "b7898a7130a1f2f0ef85a43e5b81d977ceb3d9bf5af434eaac5d186b4d87b3f8"
+    },
+    {
+      "name": "libappstream-dev",
+      "version": "0.12.10-2",
+      "file": "libappstream-dev_0.12.10-2_amd64.deb",
+      "sha256": "0cea8ac5c574b5b35376c1a479f4ebea56baa4ac9f78592d356ccc48032e1d3a"
+    },
+    {
+      "name": "libarchive-dev",
+      "version": "3.4.0-2ubuntu1.5",
+      "file": "libarchive-dev_3.4.0-2ubuntu1.5_amd64.deb",
+      "sha256": "57fb8e1c4c8c5ac64c4330032b2b2cb2fb5976412154c330f10f8f15d687ef33"
+    },
+    {
+      "name": "libavahi-glib-dev",
+      "version": "0.7-4ubuntu7.3",
+      "file": "libavahi-glib-dev_0.7-4ubuntu7.3_amd64.deb",
+      "sha256": "2b7b5a1ca5729afb94d5c89ff2399615ed8bae8f79e1b6814ee159f30ecdef0e"
+    },
+    {
+      "name": "libcap-dev",
+      "version": "1:2.32-1ubuntu0.2",
+      "file": "libcap-dev_1%3a2.32-1ubuntu0.2_amd64.deb",
+      "sha256": "639eee294eb7c8fdd27fde353e23f745450446e45730ad212eb64294cd8d5d66"
+    },
+    {
+      "name": "libelf-dev",
+      "version": "0.176-1.1ubuntu0.1",
+      "file": "libelf-dev_0.176-1.1ubuntu0.1_amd64.deb",
+      "sha256": "a6d55687ae718f06ebf5e24ddfc05046e57ba01c3f4bdbac67039d5d7b7f4770"
+    },
+    {
+      "name": "libext2fs-dev",
+      "version": "1.45.5-2ubuntu1.2",
+      "file": "libext2fs-dev_1.45.5-2ubuntu1.2_amd64.deb",
+      "sha256": "200694ca9e15d239e0e5ae5c74e0f7cff70415ed25b710c96d59e307151a89a8"
+    },
+    {
+      "name": "libfuse-dev",
+      "version": "2.9.9-3",
+      "file": "libfuse-dev_2.9.9-3_amd64.deb",
+      "sha256": "036407feabbf18c5219f22b8997c765038122a465e0fd565d6a31d848fa9aad7"
+    },
+    {
+      "name": "libjson-glib-dev",
+      "version": "1.4.4-2ubuntu2",
+      "file": "libjson-glib-dev_1.4.4-2ubuntu2_amd64.deb",
+      "sha256": "4f4bdab81dcadabdb9893a8e9fabdec351a5a16af7bf1935c22968b3dcc1cc9d"
+    },
+    {
+      "name": "libpolkit-agent-1-dev",
+      "version": "0.105-26ubuntu1.3",
+      "file": "libpolkit-agent-1-dev_0.105-26ubuntu1.3_amd64.deb",
+      "sha256": "58a0ea817dd003084a04f730e9b7bd55d2f91321ae75486614afa3877f56dd9c"
+    },
+    {
+      "name": "libpolkit-gobject-1-dev",
+      "version": "0.105-26ubuntu1.3",
+      "file": "libpolkit-gobject-1-dev_0.105-26ubuntu1.3_amd64.deb",
+      "sha256": "151432acca48a0fd75ee1e668637adbba770c2939b7b70c986962b491f2e7144"
+    },
+    {
+      "name": "libseccomp-dev",
+      "version": "2.5.1-1ubuntu1~20.04.2",
+      "file": "libseccomp-dev_2.5.1-1ubuntu1~20.04.2_amd64.deb",
+      "sha256": "d1a98108ba5abc71851de681f5fbd4399f5e6734796969b9e2b922df4d8e9ca9"
+    },
+    {
+      "name": "libsoup2.4-dev",
+      "version": "2.70.0-1ubuntu0.5",
+      "file": "libsoup2.4-dev_2.70.0-1ubuntu0.5_amd64.deb",
+      "sha256": "8c84cee157aa3597154f2a1154a098c874af743295562566602c7ef1da38e4f6"
+    },
+    {
+      "name": "libsystemd-dev",
+      "version": "245.4-4ubuntu3.24",
+      "file": "libsystemd-dev_245.4-4ubuntu3.24_amd64.deb",
+      "sha256": "236388fa580200628347295a5d1b6e0a1c052d0c4de4b34b78acea51b1327db4"
+    },
+    {
+      "name": "socat",
+      "version": "1.7.3.3-2",
+      "file": "socat_1.7.3.3-2_amd64.deb",
+      "sha256": "deeaf50bf877d5474fb8654695ab745a54da20e1536a5d5a9492c0966f9c01cf"
+    }
+  ]
+}

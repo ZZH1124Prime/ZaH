@@ -1,7 +1,0 @@
-{
-  "adapter": "sakuracat",
-  "container": "sakuracat26",
-  "system": "ubuntu26",
-  "source": "",
-  "distrobox": "~/.local/bin/distrobox"
-}

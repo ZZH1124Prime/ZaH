@@ -1,0 +1,7 @@
+Noto Sans CJK Regular, unmodified. Source: Ubuntu fonts-noto-cjk package on the validation host; upstream https://github.com/notofonts/noto-cjk . License: SIL Open Font License 1.1, included in LICENSE.txt.
+SHA256 5dcd1c336cc9344cb77c03a0cd8982ca8a7dc97d620fd6c9c434e02dcb1ceeb3
+Used for Noto Sans CJK SC and four explicit aliases: Microsoft YaHei, 微软雅黑, MS Shell Dlg, SimSun; the first three verified with QQ and SimSun with the isolated GDI fixture; not a replacement for every Windows font.
+
+DejaVu Sans, unmodified. Source: Ubuntu fonts-dejavu-core on the validation host; upstream https://dejavu-fonts.github.io/ . Font license: Bitstream Vera, DejaVu changes public domain. Complete distro copyright notice retained in DejaVu-LICENSE.txt (its separate debian/* section describes packaging, not this font).
+SHA256 437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db
+Sizes: Noto 20332392 bytes; DejaVu 757076 bytes. No font downloads at runtime. The Noto-to-DejaVu link expands glyph coverage, not a guarantee of complex shaping or every script/rendering engine. No global Arial/Tahoma substitution or application-private icon-font replacement.

@@ -71,3 +71,8 @@ Desktop.ini
 *.deb
 *.zahbundle
 *.zahbundle.partial
+
+# Local editor preferences and generated self-extracting release artifacts.
+/.vscode/
+/release/ZaH-*.run
+/release/ZaH-*.run.sha256
